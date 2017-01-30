@@ -1,0 +1,576 @@
+/* ================================================ */
+/* ===================== BASE ===================== */
+/* ================================================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Overpass', sans-serif;
+    background-color: #222;
+}
+
+section {
+    position: relative;
+    padding: 80px 15%;
+    background-color: #fefefe;
+}
+
+.dark-section {
+    background-color: #191716;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: 'primetimeregular', sans-serif;
+    color: #191716;
+}
+
+section h2 {
+    width: 50%;
+    margin: 80px auto;
+    padding-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #191716;
+}
+
+.dark-section h3 {
+    color: #fff;
+}
+
+section p {
+    padding-bottom: 15px;
+    font-size: 1.1em;
+    color: #2F2B2A;
+}
+
+.dark-section p {
+    color: #fefefe;
+}
+
+strong {
+    color: #1e1e1e;
+}
+
+.dark-section strong {
+    color: lawngreen;
+}
+
+a {
+    font-weight: 600;
+    color: #780101;
+    text-decoration: none;
+    transition: .2s;
+}
+
+a:hover, a:active {
+    color: #FE0000;
+}
+
+/* ================================================ */
+/* ==================== NAVBAR ==================== */
+/* ================================================ */
+nav {
+    width: 50%;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+    color: #191716;
+    list-style: none;
+}
+
+nav ul li a.fa-facebook-official {
+    color: #3B5998;
+}
+nav ul li a.fa-twitter {
+    color: #1DA1F2;
+}
+nav ul li a.fa-youtube-play {
+    color: #CC181E;
+}
+nav ul li [class*="fa"]:hover {
+    filter: brightness(150%);
+}
+
+/* ================================================ */
+/* ==================== PENTES ==================== */
+/* ================================================ */
+[class*="slope"] {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    background-image: url(../img/slope1.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100px;
+    z-index: 1;
+}
+
+.slope1 {
+    bottom: 0;
+}
+
+.slope2 {
+    -moz-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    bottom: -100px;
+}
+
+.slope3 {
+    top: -100px;
+}
+
+.dark-section [class*="slope"] {
+    background-image: url(../img/slope2.svg);
+}
+
+/* ================================================ */
+/* ==================== HEADER ==================== */
+/* ================================================ */
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: rgb(254,254,254); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(254,254,254,1) 0%, rgba(201,200,198,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(254,254,254,1) 0%,rgba(201,200,198,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  rgba(254,254,254,1) 0%,rgba(201,200,198,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#c9c8c6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.logo {
+    position: relative;
+    width: calc(447px * 1.8);
+    height: calc(83px * 1.8);
+    background-image: url(../img/logo-kijewoku.svg);
+    background-size: cover;
+    box-shadow: 0 0 30px #B6B5B5;
+    cursor: pointer;
+    z-index: 1;
+}
+
+header h2 {
+    z-index: 1;
+}
+
+.mascot {
+    width: 630px;
+    height: 1120px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-image: url(../img/mascot.png);   
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 115% 75%;
+    z-index: 0;
+}
+
+.mascot-opacity {
+    opacity: .25;
+}
+
+/* --- bouton descendre --- */
+.fa-arrow-down {
+    position: absolute;
+    bottom: 150px;
+    cursor: pointer;
+    opacity: .7;
+    z-index: 2;
+}
+
+/* --- effet de cercle autour du go-down en hover --- */
+[class*="btn-circle-"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    opacity: 0;
+}
+/* > cercle du milieu */
+.btn-circle-level1 {
+    top: 12px;
+    left: 12px;
+    border: 2px solid #333;
+    transition: .6s;
+}
+#go-down:hover .btn-circle-level1 {
+    width: 120px;
+    height: 120px;
+    top: -48px;
+    left: -48px;
+    opacity: .25;
+}
+/* > cercle du milieu */
+.btn-circle-level2 {
+    top: 12px;
+    left: 12px;
+    border: 2px solid #333;
+    transition: .4s;
+}
+#go-down:hover .btn-circle-level2 {
+    width: 100px;
+    height: 100px;
+    top: -38px;
+    left: -38px;
+    opacity: 1;
+}
+/* > cercle du milieu */
+.btn-circle-level3 {
+    top: 12px;
+    left: 12px;
+    border: 2px solid #333;
+    transition: .8s;
+}
+#go-down:hover .btn-circle-level3 {
+    width: 90px;
+    height: 90px;
+    top: -33px;
+    left: -33px;
+    opacity: .5;
+    transition: .8s;
+}
+
+/* --- bouton refresh --- */
+.fa-refresh {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: .3s;
+    opacity: .7;
+}
+
+.fa-refresh:hover {
+    cursor: pointer;
+    opacity: 1;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+/* ================================================ */
+/* ===================== GAMES ==================== */
+/* ================================================ */
+.back {
+    position: relative;
+    background-color: #fff;
+}
+
+[class*="back-game-"] {
+    width: 100%;
+    height: 75vh;
+    background-size: cover;
+    background-position: right center;
+    background-attachment: fixed;
+    opacity: .87;
+}
+
+.back-game-lb {
+    background-image: url(../img/game-lebonhomme.jpg);
+}
+
+.back-game-ki {
+    background-image: url(../img/game-kipatord.jpg);
+}
+
+.back-game-eni {
+    background-image: url(../img/game-eni.jpg);
+}
+
+[class*="game-logo-"] {
+    margin: 0 auto;
+    background-size: cover;
+}
+
+.game-logo-lb {
+    width: calc(1710px/3);
+    height: calc(339px/3);
+    background-image: url(../img/logo-lebonhomme.png);
+}
+
+.game-logo-ki {
+    width: calc(1024px/3);
+    height: calc(437px/3);
+    background-image: url(../img/logo-kipatord.png);
+}
+
+/* ================================================ */
+/* ===================== CONTACT ================== */
+/* ================================================ */
+.form * {
+    -webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+}
+
+#feedback-page{
+	text-align:center;
+}
+
+#form-main{
+	width:100%;
+	float:left;
+	padding-top:0px;
+}
+
+#form-div {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: absolute;
+    margin-top:30px;
+	margin-left: -260px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+	color:#302e31;
+	font-family: Helvetica, Arial, sans-serif;
+    font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #fff;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+    border: 3px solid #575757;
+}
+
+.feedback-input:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 3px solid #780101;
+	color: #780101;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#780101;
+	border:#780101 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+	background-image: url(../img/name.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#name:focus{
+	background-image: url(../img/name_hover.svg);
+}
+
+#email{
+	background-image: url(../img/email.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email:focus{
+	background-image: url(../img/email_hover.svg);
+}
+
+#comment{
+	background-image: url(../img/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment:focus{
+	background-image: url(../img/comment_hover.svg);
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
+
+.submit {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#button-blue{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+	padding: 25px 10px;
+	background-color: #780101;
+	color:white;
+	font-size:24px;
+    font-weight:700;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	border: #fff solid 4px;
+	cursor:pointer;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+    z-index: 2;
+}
+
+#button-blue:hover{
+	background-color: #e3e3e3;
+	color: #780101;
+    box-shadow: 0 8px 20px #bbb;
+}
+	
+.submit:hover {
+	color: #780101;
+}
+
+@media only screen and (max-width: 580px) {
+	#form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+    
+    #button-blue{
+	    width: 100%;
+    }
+}
+
+/* ================================================ */
+/* ===================== BUTTON =================== */
+/* ================================================ */
+.button {
+    display: block;
+    margin: 0 auto;
+    background-color: #780101;
+    border: none;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px 50px;
+    width: 340px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.button a {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    color: #fefefe;
+}
+
+.button a:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover a {
+    padding-right: 25px;
+}
+
+.button:hover {
+    box-shadow: 0 8px 20px #bbb;
+}
+
+.dark-section .button:hover {
+    box-shadow: 0 8px 20px #111;
+}
+
+.button:hover a:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* ================================================ */
+/* ===================== FOOTER =================== */
+/* ================================================ */
+footer {
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 400px;
+    color: #EAEAEA;
+}
+
+footer h3 {
+    font-size: .9em;
+    color: #EAEAEA;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer [class*="social-"] {
+    display: block;
+    margin-right: 10px;
+    width: 55px;
+    height: 55px;
+    transition: .5s;
+}
+
+footer [class*="social-"]:hover {
+    filter: brightness(150%);
+}
+
+.social div {
+    display: flex;
+}
+
+.social-twitter {
+    background-image: url(../img/icon-twitter.svg);
+}
+.social-facebook {
+    background-image: url(../img/icon-facebook.svg);
+}
+.social-youtube {
+    background-image: url(../img/icon-youtube.svg);
+}

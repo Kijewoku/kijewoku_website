@@ -1,0 +1,29 @@
+/* logo responsive */
+.logo {
+    width: 75%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 0 transparent;
+}
+
+/* pareil pour la mascotte */
+.mascot {
+    width: 100%;
+}
+
+/* supression des effets de pents */
+[class*="slope"] {
+    display: none;
+}
+
+/* logo des jeux responsive */
+[class*="game-logo-"] {
+    width: 60%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* boutons plus petits */
+.button {
+    width: 250px;
+}
